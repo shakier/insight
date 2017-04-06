@@ -4,6 +4,8 @@ from datetime import timedelta
 
 time_list = pickle.load(open('second_hit.p'))
 
+# a typical max sliding window problem; everytime slide the window to include every timestamps within 3600 seconds(1 hour) and cound the length of this list to get the total of the hits
+
 hour_window = []
 max_window = []
 hour_window.append(time_list[0])
