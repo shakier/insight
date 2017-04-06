@@ -21,7 +21,7 @@ for i in xrange(1, len(time_list)):
 
 top_10_hours = [heapq.nlargest(10, max_window)]
 
-with open('hours.txt','w') as f:
+with open('./log_output/hours.txt','w') as f:
     for pair in top_10_hours[0]:
       f.write(pair[1].strftime('%d/%b/%Y:%H:%M:%S -0400') + ',' + str(pair[0]) + '\n')
 
