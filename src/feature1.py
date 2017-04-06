@@ -2,12 +2,9 @@ import pickle
 import heapq
 
 feature1_list = pickle.load(open('host.p'))
-#feature2_list = pickle.load(open('bandwidth.p'))
-#feature3_list = pickle.load(open('host.p'))
-#feature4_list = pickle.load(open('second_hit.p'))
-#print feature1_list
-host_map = feature1_list[0]
 
+host_map = feature1_list[0]
+# use a heap to keep order (could have keep only the top 10 in the heap so as to minimize space complexity) 
 feature1_h = []
 for host, count in host_map.iteritems():
   heapq.heappush(feature1_h, (count, host))
