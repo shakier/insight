@@ -8,6 +8,6 @@ for resource, bandwidth in bandwidth_map.iteritems():
   if resource != '/':  
     heapq.heappush(feature2_h, (bandwidth, resource))
 top_10_resources = [heapq.nlargest(10, feature2_h)]
-with open('resources.txt','w') as f:
+with open('./log_output/resources.txt','w') as f:
   for pair in top_10_resources[0]:
     f.write(pair[1] + '\n')
