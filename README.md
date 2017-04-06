@@ -1,14 +1,3 @@
-# Table of Contents
-1. [Challenge Summary](README.md#challenge-summary)
-2. [Details of Implementation](README.md#details-of-implementation)
-3. [Download Data](README.md#download-data)
-4. [Description of Data](README.md#description-of-data)
-5. [Writing clean, scalable, and well-tested code](README.md#writing-clean-scalable-and-well-tested-code)
-6. [Repo directory structure](README.md#repo-directory-structure)
-7. [Testing your directory structure and output format](README.md#testing-your-directory-structure-and-output-format)
-8. [Instructions to submit your solution](README.md#instructions-to-submit-your-solution)
-9. [FAQ](README.md#faq)
-
 
 # Challenge Summary
 
