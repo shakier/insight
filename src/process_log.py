@@ -12,30 +12,35 @@ bad_temp_count = {}
 bad_temp_map = {}
 bad_temp_log = []
 
-with open('/Users/shakier/Documents/insightEng/log.txt', 'rb') as f:
+#parse the log file line by line
+with open('./log_input/log.txt', 'rb') as f:
   for line in f:
     m = re.search('(.+)\s-\s-\s\[(.+)\s.+\]\s\"(.+)"\s(\d+)\s(.+)', line)
     host = m.group(1)
     time = m.group(2)
     parsed_time = datetime.strptime(time, '%d/%b/%Y:%H:%M:%S')
+    #some of the requests do not follow common format; treat as special cases
     try:
       request = m.group(3).split()[1]
     except:
       print 'bad input:', line
     reply = m.group(4)
     byte_num = m.group(5)
+    #count all hits by hosts
     if host not in host_map:
       host_map[host] = 1
     elif host in host_map:
       host_map[host] += 1
+    #count bandwidth by requests
     if request not in bandwidth_map:
       bandwidth_map[request] = 1
     elif request in bandwidth_map:
       bandwidth_map[request] += 1
     second_hit_list.append(parsed_time) 
 
-
-#    print 'original line', line
+    ########## following is for processing for feature 4 ############
+    ########## uncommon the lines beginning with 'print' will see detail processing while executing ########
+    
     if host in bad_temp_map:
 #      print 'host in bad_temp_map', host, bad_temp_map
       if parsed_time <= bad_temp_map[host] + timedelta(minutes = 5):
