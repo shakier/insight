@@ -9,7 +9,7 @@ feature1_h = []
 for host, count in host_map.iteritems():
   heapq.heappush(feature1_h, (count, host))
 top_10_active_host = [heapq.nlargest(10, feature1_h)]
-with open('hosts.txt','w') as f:
+with open('./log_output/hosts.txt','w') as f:
   for pair in top_10_active_host[0]:
     f.write(pair[1] + ',' + str(pair[0]) + '\n')
 
